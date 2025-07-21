@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Lovable Dark Blue Theme */
+    --background: 215 25% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 25% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 25% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 215 85% 25%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 195 100% 75%;
+    --accent-foreground: 215 25% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 195 100% 75%;
+
+    --radius: 0.75rem;
+
+    /* Portfolio specific colors */
+    --hero-gradient-start: 215 85% 25%;
+    --hero-gradient-end: 195 100% 35%;
+    --soft-cyan: 180 100% 85%;
+    --sky-blue: 200 100% 70%;
+    --dark-blue-accent: 215 60% 35%;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(215 85% 25% / 0.15);
+    --shadow-elegant: 0 8px 30px -4px hsl(215 85% 25% / 0.25);
+    --shadow-glow: 0 0 40px hsl(195 100% 75% / 0.3);
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(215 20% 18%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--sky-blue)));
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 215 85% 25%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 195 100% 60%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+  }
+}
+
+/* Portfolio specific utility classes */
+@layer utilities {
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from { box-shadow: var(--shadow-soft); }
+    to { box-shadow: var(--shadow-glow); }
+  }
+}
